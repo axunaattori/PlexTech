@@ -54,6 +54,7 @@ function registerPlate(name, recipe) --ill find a bettery way trust -06/12/2025
 				{ "group:" .. normalize(name) .. "_ingot" },
 				{ "group:" .. normalize(name) .. "_ingot" },
 			},
+			replacements = { { "plextech:hammer", "plextech:hammer" } },
 		})
 	end
 end
@@ -61,6 +62,7 @@ end
 core.register_craftitem("plextech:hammer", {
 	description = "Hammer",
 	inventory_image = "bronze_hammer.png",
+	stack_max = 1,
 })
 
 core.register_craft({
