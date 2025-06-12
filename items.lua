@@ -7,10 +7,25 @@ local minetestElementsPT = --write like "Copper Alloy" in list itll try to norma
 		"Gold",
 	}
 
+minetestElementColors = -- add minetest colors
+	{
+		"#e56209", -- bronze 
+		"#ec923a", -- copper 
+		"#eeece8", -- steel 
+		"#b4b3b1", -- tin 
+		"#ffd100", -- gold
+	}
+
 PTMaterial = -- mod materials
 	{
 		"Pig iron",
 		"Iron",
+	}
+
+PTMaterialColors = 
+	{
+		"#b49696",
+		"#c8c8c8"
 	}
 
 local function normalize(string) --returns "hello_world" from "Hello World" for example.
@@ -30,12 +45,16 @@ core.register_on_mods_loaded(function()
 	end
 end)
 
-function registerDust(name, recipe)
+function registerDust(name, recipe, color)
+	if not color then
+		color = "#FFFFFF"
+	end
 	core.register_craftitem("plextech:" .. normalize(name) .. "_dust", {
 		description = name .. " dust",
 		groups = {
 			[normalize(name) .. "_dust"] = 1
-		}
+		},
+		inventory_image = "dust.png^[multiply:" .. color,
 	})
 
 	if recipe ~= 0 then
@@ -49,12 +68,16 @@ function registerDust(name, recipe)
 	end
 end
 
-function registerPlate(name, recipe) --ill find a bettery way trust -06/12/2025
+function registerPlate(name, recipe, color) --ill find a bettery way trust -06/12/2025
+	if not color then
+		color = "#FFFFFF"
+	end
 	core.register_craftitem("plextech:" .. normalize(name) .. "_plate", {
 		description = name .. " plate",
 		groups = {
 			[normalize(name) .. "_plate"] = 1
-		}
+		},
+		inventory_image = "plate.png^[multiply:" .. color, 
 	})
 
 	if recipe ~= 0 then
@@ -71,7 +94,10 @@ function registerPlate(name, recipe) --ill find a bettery way trust -06/12/2025
 	end
 end
 
-function registerIngot(name, recipe) --smelting recipe blah blah dust -> ingot, ill do it for the default ones too someday ;)
+function registerIngot(name, recipe, color) --smelting recipe blah blah dust -> ingot, ill do it for the default ones too someday ;)
+	if not color then
+		color = "#FFFFFF"
+	end
 	core.register_craftitem("plextech:" .. normalize(name) .. "_ingot", {
 		description = name .. " ingot",
 		groups = {
