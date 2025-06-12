@@ -1,4 +1,5 @@
 local minetestElementsPT = dofile(minetest.get_modpath("plextech") .. "/items.lua")
+local nodeslua = dofile(minetest.get_modpath("plextech") .. "/nodes.lua")
 
 print("Hello from PlexTech")
 
@@ -14,3 +15,5 @@ for i = 1, #PTMaterial do
 	registerDust(PTMaterial[i], 1, PTMaterialColors[i])
 	print("PT: " .. PTMaterial[i] .. " registered")
 end
+
+registerMachines()

@@ -102,7 +102,8 @@ function registerIngot(name, recipe, color) --smelting recipe blah blah dust -> 
 		description = name .. " ingot",
 		groups = {
 			[normalize(name) .. "_ingot"] = 1
-		}
+		},
+		inventory_image = "ingot.png^[multiply:" .. color,
 	})
 
 	if recipe ~= 0 then
