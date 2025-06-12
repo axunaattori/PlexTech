@@ -60,7 +60,7 @@ end
 
 core.register_craftitem("plextech:hammer", {
 	description = "Hammer",
-	inventory_image = "bronze_hammer.png",
+	inventory_image = "hammer.png",
 })
 
 core.register_craft({
