@@ -7,6 +7,12 @@ local minetestElementsPT = --write like "Copper Alloy" in list itll try to norma
 		"Gold",
 	}
 
+PTMaterial = -- mod materials
+	{
+		"Pig iron",
+		"Iron",
+	}
+
 local function normalize(string) --returns "hello_world" from "Hello World" for example.
 	return (string:lower():gsub("%s", "_"))
 end
@@ -27,6 +33,9 @@ end)
 function registerDust(name, recipe)
 	core.register_craftitem("plextech:" .. normalize(name) .. "_dust", {
 		description = name .. " dust",
+		groups = {
+			[normalize(name) .. "_dust"] = 1
+		}
 	})
 
 	if recipe ~= 0 then
@@ -43,10 +52,13 @@ end
 function registerPlate(name, recipe) --ill find a bettery way trust -06/12/2025
 	core.register_craftitem("plextech:" .. normalize(name) .. "_plate", {
 		description = name .. " plate",
+		groups = {
+			[normalize(name) .. "_plate"] = 1
+		}
 	})
 
 	if recipe ~= 0 then
-		core.register_craft({ --todo add hammer
+		core.register_craft({
 			type = "shaped",
 			output = "plextech:" .. normalize(name) .. "_plate",
 			recipe = {
@@ -55,6 +67,24 @@ function registerPlate(name, recipe) --ill find a bettery way trust -06/12/2025
 				{ "group:" .. normalize(name) .. "_ingot" },
 			},
 			replacements = { { "plextech:hammer", "plextech:hammer" } },
+		})
+	end
+end
+
+function registerIngot(name, recipe) --smelting recipe blah blah dust -> ingot, ill do it for the default ones too someday ;)
+	core.register_craftitem("plextech:" .. normalize(name) .. "_ingot", {
+		description = name .. " ingot",
+		groups = {
+			[normalize(name) .. "_ingot"] = 1
+		}
+	})
+
+	if recipe ~= 0 then
+		core.register_craft({
+			type = "cooking",
+			output = "plextech:" .. normalize(name) .. "_ingot",
+			recipe = "group:" .. normalize(name) .. "_dust",
+			cooktime = 10,
 		})
 	end
 end

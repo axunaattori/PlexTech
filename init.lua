@@ -8,3 +8,10 @@ for i = 1, #minetestElementsPT do
 	registerPlate(minetestElementsPT[i], 1)
 	print("PT: " .. minetestElementsPT[i] .. " registered")
 end
+
+for i = 1, #PTMaterial do
+	registerIngot(PTMaterial[i], 1)
+	registerPlate(PTMaterial[i], 1)
+	registerDust(PTMaterial[i], 1)
+	print("PT: " .. PTMaterial[i] .. " registered")
+end
