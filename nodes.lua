@@ -3,7 +3,6 @@ function registerMachines()
         description = "Mechnical press",
         tiles = {"press_off.png"}
     })
-    print("yes i am ran")
 end
 
 return nodeslua
