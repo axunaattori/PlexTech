@@ -25,4 +25,34 @@ core.register_craft({
 	},
 })
 
+-- add missing "default" dust -> ingot recipes since the material "API" is designed for plextech only at this moment
+
+core.register_craft({
+	type = "cooking",
+	output = "default:tin_ingot",
+	recipe = "group:tin_dust",
+	cooktime = 10,
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:copper_ingot",
+	recipe = "group:copper_dust",
+	cooktime = 10,
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:steel_ingot",
+	recipe = "group:steel_dust",
+	cooktime = 10,
+})
+
+core.register_craft({
+	type = "cooking",
+	output = "default:gold_ingot",
+	recipe = "group:gold_dust",
+	cooktime = 10,
+})
+
 return recipeslua
