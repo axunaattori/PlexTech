@@ -30,6 +30,13 @@ local function rotate_and_place(itemstack, placer, pointed_thing)
 	return minetest.item_place(itemstack, placer, pointed_thing, param2)
 end
 
+function randomNodes()
+	core.register_node("plextech:basic_machine_hull", {
+		description = "Basic Machine Hull",
+		tiles = { "machine_side.png" },
+	})
+end
+
 function registerMachines()
 	core.register_node("plextech:mechanical_press", {
 		description = "Mechanical Press",

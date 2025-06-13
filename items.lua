@@ -1,3 +1,6 @@
+--technically just an API for material creation, misleading name might rename it (like materialapi.lua) or do something to it
+--it's possible that ill add more recipes to the functions so please use 1 for currently existing material stuff
+
 local minetestElementsPT = --write like "Copper Alloy" in list itll try to normalizee it into copper_alloy for the plextech:XXX_name_whatever
 	{
 		"Bronze",
@@ -9,10 +12,10 @@ local minetestElementsPT = --write like "Copper Alloy" in list itll try to norma
 
 minetestElementColors = -- add minetest colors
 	{
-		"#e56209", -- bronze 
-		"#ec923a", -- copper 
-		"#eeece8", -- steel 
-		"#b4b3b1", -- tin 
+		"#e56209", -- bronze
+		"#ec923a", -- copper
+		"#eeece8", -- steel
+		"#b4b3b1", -- tin
 		"#ffd100", -- gold
 	}
 
@@ -20,13 +23,14 @@ PTMaterial = -- mod materials
 	{
 		"Pig iron",
 		"Iron",
+		"Wrought iron",
 	}
 
-PTMaterialColors = 
-	{
-		"#b49696",
-		"#c8c8c8"
-	}
+PTMaterialColors = {
+	"#b49696", -- pig iron
+	"#c8c8c8", -- iron
+	"#8c6e6e", -- wrought iron
+}
 
 local function normalize(string) --returns "hello_world" from "Hello World" for example.
 	return (string:lower():gsub("%s", "_"))
@@ -52,7 +56,7 @@ function registerDust(name, recipe, color)
 	core.register_craftitem("plextech:" .. normalize(name) .. "_dust", {
 		description = name .. " dust",
 		groups = {
-			[normalize(name) .. "_dust"] = 1
+			[normalize(name) .. "_dust"] = 1,
 		},
 		inventory_image = "dust.png^[multiply:" .. color,
 	})
@@ -75,9 +79,9 @@ function registerPlate(name, recipe, color) --ill find a bettery way trust -06/1
 	core.register_craftitem("plextech:" .. normalize(name) .. "_plate", {
 		description = name .. " plate",
 		groups = {
-			[normalize(name) .. "_plate"] = 1
+			[normalize(name) .. "_plate"] = 1,
 		},
-		inventory_image = "plate.png^[multiply:" .. color, 
+		inventory_image = "plate.png^[multiply:" .. color,
 	})
 
 	if recipe ~= 0 then
@@ -101,7 +105,7 @@ function registerIngot(name, recipe, color) --smelting recipe blah blah dust -> 
 	core.register_craftitem("plextech:" .. normalize(name) .. "_ingot", {
 		description = name .. " ingot",
 		groups = {
-			[normalize(name) .. "_ingot"] = 1
+			[normalize(name) .. "_ingot"] = 1,
 		},
 		inventory_image = "ingot.png^[multiply:" .. color,
 	})
