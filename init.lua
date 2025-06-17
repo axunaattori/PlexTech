@@ -1,4 +1,4 @@
-local minetestElementsPT = dofile(minetest.get_modpath("plextech") .. "/items.lua")
+local minetestElementsPT = dofile(minetest.get_modpath("plextech") .. "/api/materials.lua")
 local nodeslua = dofile(minetest.get_modpath("plextech") .. "/nodes.lua")
 local recipeslua = dofile(minetest.get_modpath("plextech") .. "/recipes.lua")
 
