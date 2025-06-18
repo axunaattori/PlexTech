@@ -61,7 +61,11 @@ function registerMachines()
 			local esc = minetest.formspec_escape
 			meta:set_string(
 				"formspec",
-				"size[8,9]list[context;main;0,0;8,4]list[current_player;main;0,5;8,4]image[0,0;0.7,0.4;ax.png]label[1,0;Mechanical Press]"
+				"size[8,9]"
+					.. "list[context;main;0,0;8,4]"
+					.. "list[current_player;main;0,5;8,4]"
+					.. "image[0,0;0.7,0.4;ax.png]"
+					.. "label[1,0;Mechanical Press]"
 			)
 		end,
 	})
@@ -78,7 +82,13 @@ function registerMachines()
 			local meta = core.get_meta(pos)
 			meta:set_string(
 				"formspec",
-				"size[8,9]image[0,0;0.7,0.4;ax.png]label[1,0;Infinite Energy Source]field[0.5,1;5,1;energy;Energy;0]field_close_on_enter[energy;true]"
+				"size[8,9]"
+					.. "list[context;main;0,0;8,4]"
+					.. "list[current_player;main;0,5;8,4]"
+					.. "image[0,0;0.7,0.4;ax.png]"
+					.. "label[1,0;Infinite Energy Source]"
+					.. "field[0.5,1;5,1;energy;Energy;0]"
+					.. "field_close_on_enter[energy;false]"
 			)
 			if WhatIsThisApi ~= nil then
 				WhatIsThisApi.set_info(pos, "Energy: 0")
