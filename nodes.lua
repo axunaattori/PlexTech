@@ -56,11 +56,32 @@ function registerMachines()
 
 			return rotate_and_place(itemstack, placer, pointed_thing)
 		end,
+		on_construct = function(pos, placer)
+			local meta = core.get_meta(pos)
+			local esc = minetest.formspec_escape
+			meta:set_string(
+				"formspec",
+				"size[8,9]list[context;main;0,0;8,4]list[current_player;main;0,5;8,4]image[0,0;0.7,0.4;ax.png]label[1,0;Mechanical Press]"
+			)
+		end,
 	})
 
 	core.register_node("plextech:void_miner", {
 		description = "Void Miner",
 		tiles = { "machine_side.png" },
+	})
+
+	core.register_node("plextech:infinite_energy_source", {
+		description = "Infinite Energy Source",
+		tiles = { "iesmachine.png" },
+		on_construct = function(pos, placer)
+			local meta = core.get_meta(pos)
+			local esc = minetest.formspec_escape
+			meta:set_string(
+				"formspec",
+				"size[8,9]list[context;main;0,0;8,4]list[current_player;main;0,5;8,4]image[0,0;0.7,0.4;ax.png]label[1,0;Infinite Energy Source]field[0.5,1;5,1;energy;Energy;0]field_close_on_enter[energy;false]"
+			)
+		end,
 	})
 end
 
