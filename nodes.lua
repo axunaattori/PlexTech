@@ -76,20 +76,20 @@ function registerMachines()
 		tiles = { "iesmachine.png" },
 		on_construct = function(pos, placer)
 			local meta = core.get_meta(pos)
-			local esc = minetest.formspec_escape
 			meta:set_string(
 				"formspec",
-				"size[8,9]list[context;main;0,0;8,4]list[current_player;main;0,5;8,4]image[0,0;0.7,0.4;ax.png]label[1,0;Infinite Energy Source]field[0.5,1;5,1;energy;Energy;0]field_close_on_enter[energy;false]"
+				"size[8,9]image[0,0;0.7,0.4;ax.png]label[1,0;Infinite Energy Source]field[0.5,1;5,1;energy;Energy;0]field_close_on_enter[energy;true]"
 			)
 			if WhatIsThisApi ~= nil then
-				WhatIsThisApi.set_info(pos, "Energy:")
+				WhatIsThisApi.set_info(pos, "Energy: 0")
+			end
+		end,
+		on_receive_fields = function(pos, formname, fields, sender)
+			if WhatIsThisApi ~= nil then
+				WhatIsThisApi.set_info(pos, "Energy: " .. tostring(tonumber(fields.energy)))
 			end
 		end,
 	})
 end
-
---core.register_on_player_receive_fields(function(...)
---	print("Hello everynyaw!")
---end)
 
 return nodeslua
