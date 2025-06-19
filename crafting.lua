@@ -58,7 +58,7 @@ local minetest_elements = {
 	{ "Steel", "#eeece8" },
 	{ "Tin", "#b4b3b1" },
 	{ "Gold", "#ffd100" },
-	{ "Diamond", "#00C808", 0 },
+	{ "Diamond", "#00C8C8", 0 },
 }
 
 local plextech_materials = {
